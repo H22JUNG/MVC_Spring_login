@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.goodee.service.Service1;
+import com.goodee.vo.BbsVO;
 import com.goodee.vo.UserVO;
 
 @Controller
@@ -43,14 +44,34 @@ public class PageController {
 	public String login2(UserVO vo, Model model) {
 		if (service.login(vo)>0) {
 			//리스트 가져오기
-			service.getList(vo);
-			
+			service.getList(model);
 			
 			return "result/result2";
 		}
 		return "login/login2";
 	}
 	
+	@GetMapping("/Controller3")
+	public String move2() {
+		return "login/login3";
+	}
+	
+	@PostMapping("/result3")
+	public String login3(UserVO vo, Model model) {
+		if (service.login(vo)>0) {
+			//리스트 가져오기
+			service.getList(model);
+			
+			return "result/result3";
+		}
+		return "login/login3";
+	}
+	
+	@GetMapping("/content1")
+	public String content1(BbsVO vo, Model model) {
+		service.getContent(model);
+		return "content/content1";
+	}
 	
 
 }

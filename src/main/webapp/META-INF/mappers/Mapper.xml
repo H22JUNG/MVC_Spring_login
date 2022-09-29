@@ -6,4 +6,11 @@
 	<select id="count" resultType="int">
 		select count(*) from user where userid=#{userid} and password=#{password}
 	</select>
+	<select id="getList" resultType="BbsVO">
+		select id, category, title, owner, content, create_date from bbs order by id desc limit 0,15 
+	</select>
+	
+	<select id="getContent" resultType="bbsVO">
+		select title, owner from bbs where title=#{title}
+	</select>
 </mapper>

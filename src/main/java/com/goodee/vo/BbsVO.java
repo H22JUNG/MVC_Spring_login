@@ -1,5 +1,8 @@
 package com.goodee.vo;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("bbsVO")
 public class BbsVO {
 	private int id;
 	private String category;
