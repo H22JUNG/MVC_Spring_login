@@ -61,7 +61,6 @@ public class PageController {
 		if (service.login(vo)>0) {
 			//리스트 가져오기
 			service.getList(model);
-			
 			return "result/result3";
 		}
 		return "login/login3";
@@ -70,6 +69,7 @@ public class PageController {
 	@GetMapping("/content1")
 	public String content1(BbsVO vo, Model model) {
 		service.getContent(model);
+		System.out.println(vo.getContent());
 		return "content/content1";
 	}
 	

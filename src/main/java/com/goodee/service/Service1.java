@@ -1,5 +1,6 @@
 package com.goodee.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -28,7 +29,10 @@ public class Service1 {
 	}
 	
 	public List<BbsVO> getContent(Model model) {
-		model.addAttribute("title", dao.getContent());
+		//dao.getContent();
+		//System.out.println(dao.getContent().get(0).getContent());
+		//BbsVO vo = new BbsVO();
+	//	System.out.println(vo.getContent());
 		return dao.getContent();
 	}
 }

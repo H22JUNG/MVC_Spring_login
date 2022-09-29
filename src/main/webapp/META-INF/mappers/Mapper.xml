@@ -11,6 +11,6 @@
 	</select>
 	
 	<select id="getContent" resultType="bbsVO">
-		select title, owner from bbs where title=#{title}
+		select title, content from bbs where title=#{title}
 	</select>
 </mapper>
