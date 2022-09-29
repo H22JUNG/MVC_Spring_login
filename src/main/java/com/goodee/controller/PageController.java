@@ -67,9 +67,12 @@ public class PageController {
 	}
 	
 	@GetMapping("/content1")
-	public String content1(BbsVO vo, Model model) {
-		service.getContent(model);
-		System.out.println(vo.getContent());
+	public String content1(BbsVO vo, Model model) { //받아오는 매개변수
+		//System.out.println(vo);
+		//System.out.println(vo.getTitle());
+		//System.out.println(vo.getContent());
+		service.getContent(model, vo); //보내는 값
+
 		return "content/content1";
 	}
 	

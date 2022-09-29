@@ -12,6 +12,6 @@ public interface DAO {
 	
 	public int count(UserVO vo);
 	public List<UserVO> getList();
-	public List<BbsVO> getContent();
+	public BbsVO getContent(BbsVO vo);
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.goodee.dao.DAO;
 import com.goodee.vo.BbsVO;
@@ -28,11 +29,15 @@ public class Service1 {
 		return dao.getList();
 	}
 	
-	public List<BbsVO> getContent(Model model) {
-		//dao.getContent();
-		//System.out.println(dao.getContent().get(0).getContent());
-		//BbsVO vo = new BbsVO();
-	//	System.out.println(vo.getContent());
-		return dao.getContent();
+	public void getContent(Model model, BbsVO vo) {
+		System.out.println("111");
+		System.out.println(vo.getTitle());
+		System.out.println(vo.getContent());
+		
+		//BbsVO vo2 = new BbsVO(); 
+		//vo2=dao.getContent(vo); BbsVO 잘 받아와지나 확인
+		//System.out.println(vo2.getContent());
+		
+		model.addAttribute("vo", dao.getContent(vo));
 	}
 }
