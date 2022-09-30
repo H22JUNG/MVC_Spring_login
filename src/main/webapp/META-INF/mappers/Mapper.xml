@@ -13,4 +13,12 @@
 	<select id="getContent" resultType="bbsVO">
 		select title, content from bbs where title=#{title}
 	</select>
+	
+	<insert id="insert" parameterType="bbsVO">
+		insert into bbs(category, title, owner, content) value (#{category}, #{title}, #{owner}, #{content})
+	</insert>
+	
+	<select id="getInfo" resultType="userVO">
+		select id from user where userid=#{userid} and password=#{password}
+	</select>
 </mapper>

@@ -1,11 +1,15 @@
 package com.goodee.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.goodee.service.Service1;
 import com.goodee.vo.BbsVO;
@@ -51,19 +55,32 @@ public class PageController {
 		return "login/login2";
 	}
 	
+	//--------------------------------------------------------------
+	
 	@GetMapping("/Controller3")
 	public String move2() {
 		return "login/login3";
 	}
 	
+	//로그인 했을 때 띄우는 리스트
 	@PostMapping("/result3")
-	public String login3(UserVO vo, Model model) {
+	public String login3(UserVO vo, Model model, HttpSession session) {
 		if (service.login(vo)>0) {
 			//리스트 가져오기
 			service.getList(model);
+			session.setAttribute("session", vo);
 			return "result/result3";
-		}
+		} 
 		return "login/login3";
+	}
+	
+	//뒤로가기 했을 때 띄우는 리스트
+	@GetMapping("/result3")
+	public String login4(UserVO vo, Model model, HttpSession session) {
+		//리스트 가져오기
+		service.getList(model);
+		session.setAttribute("session", vo);
+		return "result/result3";
 	}
 	
 	@GetMapping("/content1")
@@ -76,5 +93,46 @@ public class PageController {
 		return "content/content1";
 	}
 	
-
+	@PostMapping("/back")
+	public String back(HttpSession session) {
+		if(session.getAttribute("session") == null) {
+			//세션을 초기화하고 로그인 창으로 돌려보냄
+			session.invalidate();
+			return "login/login3";
+		}
+		return "redirect:/result3";	//리다이렉트로 보내면 get으로 변환됨
+	}
+	
+	//--------------------------------------------------------------
+	@GetMapping("/Controller4")
+	public String move4() {
+		return "login/login4";
+	}
+	@PostMapping("/result4")
+	public String login4_1(UserVO vo, Model model, HttpSession session) {
+		if (service.login(vo)>0) {
+			//리스트 가져오기
+			service.getList(model);
+			session.setAttribute("session", vo);
+			return "result/result4";
+		} 
+		return "login/login4";
+	}
+	
+	@PostMapping("/write")
+	public String write(@SessionAttribute("session") UserVO vo, HttpSession session) {
+		service.getInfo(vo);
+		System.out.println(vo.getUserid());
+		System.out.println(vo.getUsername());
+		vo.getId();
+		System.out.println(vo.getId());
+		return "content/write1";
+	}
+	
+	/*@PostMapping("/create")
+	public String create(BbsVO bbsvo,) {
+		service.create(vo);
+		session.
+		return "redirect:/result4";
+	}*/
 }

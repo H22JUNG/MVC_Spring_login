@@ -30,14 +30,22 @@ public class Service1 {
 	}
 	
 	public void getContent(Model model, BbsVO vo) {
-		System.out.println("111");
-		System.out.println(vo.getTitle());
-		System.out.println(vo.getContent());
-		
 		//BbsVO vo2 = new BbsVO(); 
 		//vo2=dao.getContent(vo); BbsVO 잘 받아와지나 확인
 		//System.out.println(vo2.getContent());
 		
 		model.addAttribute("vo", dao.getContent(vo));
+	}
+	
+	public UserVO getInfo(UserVO vo) {
+		
+		return dao.getInfo(vo);
+	}
+	
+	
+	public void create(BbsVO vo) {
+		//세션에서 userid 받아오기???
+		
+		dao.insert(vo);
 	}
 }
