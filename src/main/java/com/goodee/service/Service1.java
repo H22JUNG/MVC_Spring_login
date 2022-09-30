@@ -37,7 +37,8 @@ public class Service1 {
 		model.addAttribute("vo", dao.getContent(vo));
 	}
 	
-	public UserVO getInfo(UserVO vo) {
+	//--------------4번 ---------------
+	public int getInfo(UserVO vo) {
 		
 		return dao.getInfo(vo);
 	}

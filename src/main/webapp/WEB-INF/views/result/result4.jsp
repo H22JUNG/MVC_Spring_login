@@ -59,7 +59,7 @@ tbody>tr:hover {
 				<tr>
 					<td>${item.id}</td>
 					<td>${item.category}</td>
-					<td><a href="${pageContext.request.contextPath }/content1?title=${item.title}">${item.title}</a></td>
+					<td><a href="${pageContext.request.contextPath }/content2?title=${item.title}">${item.title}</a></td>
 					<td>${item.owner}</td>
 					<td>${item.createDate}</td>
 				</tr>

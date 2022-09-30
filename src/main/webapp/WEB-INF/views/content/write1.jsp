@@ -24,5 +24,6 @@
 		<textarea name="content" id="content" cols="100" rows="15"></textarea>
 		<button>전송</button>
 	</form>
+	
 </body>
 </html>

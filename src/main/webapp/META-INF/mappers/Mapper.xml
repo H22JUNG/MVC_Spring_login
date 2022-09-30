@@ -18,7 +18,7 @@
 		insert into bbs(category, title, owner, content) value (#{category}, #{title}, #{owner}, #{content})
 	</insert>
 	
-	<select id="getInfo" resultType="userVO">
-		select id from user where userid=#{userid} and password=#{password}
+	<select id="getInfo" resultType="int">
+		select id from user where userid=#{userid}
 	</select>
 </mapper>

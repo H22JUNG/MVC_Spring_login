@@ -10,7 +10,7 @@
 	<h4>제목 : ${vo.title }</h4>
 	<hr />
 	<textarea name="" id="" cols="100" rows="15" >${vo.content}</textarea>
-	<form action="${pageContext.request.contextPath }/back1" method="post">
+	<form action="${pageContext.request.contextPath }/back2" method="post">
 		<button>뒤로가기</button>
 	</form>
 </body>

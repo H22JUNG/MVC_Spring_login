@@ -93,7 +93,7 @@ public class PageController {
 		return "content/content1";
 	}
 	
-	@PostMapping("/back")
+	@PostMapping("/back1")
 	public String back(HttpSession session) {
 		if(session.getAttribute("session") == null) {
 			//세션을 초기화하고 로그인 창으로 돌려보냄
@@ -118,6 +118,22 @@ public class PageController {
 		} 
 		return "login/login4";
 	}
+	@GetMapping("/result4")//content2에서 뒤로가기 했을 때
+	public String login4_2(UserVO vo, Model model, HttpSession session) {
+		//리스트 가져오기
+		service.getList(model);
+		session.setAttribute("session", vo);
+		return "result/result4";
+	}
+	@GetMapping("/content2")
+	public String content2(BbsVO vo, Model model) { //받아오는 매개변수
+		//System.out.println(vo);
+		//System.out.println(vo.getTitle());
+		//System.out.println(vo.getContent());
+		service.getContent(model, vo); //보내는 값
+
+		return "content/content2";
+	}
 	
 	@PostMapping("/write")
 	public String write(@SessionAttribute("session") UserVO vo, HttpSession session) {
@@ -135,4 +151,14 @@ public class PageController {
 		session.
 		return "redirect:/result4";
 	}*/
+	
+	@PostMapping("/back2")
+	public String back2(HttpSession session) {
+		if(session.getAttribute("session") == null) {
+			//세션을 초기화하고 로그인 창으로 돌려보냄
+			session.invalidate();
+			return "login/login4";
+		}
+		return "redirect:/result4";	//리다이렉트로 보내면 get으로 변환됨
+	}
 }
