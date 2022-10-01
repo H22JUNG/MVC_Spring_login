@@ -8,9 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
- 	<form:form action="update1" modelAttribute="bbsVO" method="post">
+	${vo.content}
+	${vo.category } 이거 왜 path 안도ㅐ
+ 	<form:form action="update1/${vo.id}" modelAttribute="bbsVO" method="post">
 		<label for="category">카테고리</label>
 		<form:select path="category">
+		
 			<form:option value="고민">고민</form:option>
 			<form:option value="공유">공유</form:option>
 			<form:option value="공지">공지</form:option>

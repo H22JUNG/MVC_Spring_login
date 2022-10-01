@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -255,11 +256,13 @@ public class PageController {
 		System.out.println(vo.getCategory());
 		System.out.println(vo.getContent());
 		System.out.println(vo.getTitle());
+		System.out.println(vo.getId());
 		model.addAttribute("vo",vo);
 		return "content/update1";
 	}
-	@PostMapping("/update1") //수정 후 전송 눌렀을 때
-	public String update1(@ModelAttribute("bbsVO")BbsVO bbsVO) {
+	@PostMapping("/update1/{id}") //수정 후 전송 눌렀을 때
+	public String update1(@ModelAttribute("bbsVO")BbsVO bbsVO, @PathVariable int id) {
+		bbsVO.setId(id);
 		service.update1(bbsVO);
 		
 		return "redirect:/result5";

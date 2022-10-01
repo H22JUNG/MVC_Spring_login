@@ -15,5 +15,5 @@ public interface DAO {
 	public BbsVO getContent(BbsVO vo);
 	public int insert(BbsVO vo);
 	public UserVO getInfo(UserVO vo);
-	public int update1();
+	public int update1(BbsVO vo);
 }

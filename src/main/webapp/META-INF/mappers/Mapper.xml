@@ -24,6 +24,6 @@
 	
 	<update id="update1" parameterType="bbsVO">
 		update bbs set category=#{category}, title=#{title}, content=#{content}
-		where  id=#{id}
+		where id=#{id}
 	</update>
 </mapper>

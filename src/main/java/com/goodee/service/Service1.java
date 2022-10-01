@@ -49,10 +49,10 @@ public class Service1 {
 		
 		return dao.insert(bbsvo);
 	}
-	public int update1(BbsVO vo) {
-		return dao.update1();
-	}
 	public BbsVO getContent1(BbsVO vo) {
 		return dao.getContent(vo);
+	}
+	public int update1(BbsVO vo) {
+		return dao.update1(vo);
 	}
 }
