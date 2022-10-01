@@ -11,14 +11,19 @@
 	</select>
 	
 	<select id="getContent" resultType="bbsVO">
-		select title, content from bbs where title=#{title}
+		select id, category, title, content, owner_id from bbs where title=#{title}
 	</select>
 	
 	<insert id="insert" parameterType="bbsVO">
-		insert into bbs(category, title, owner, content) value (#{category}, #{title}, #{owner}, #{content})
+		insert into bbs(category, title, owner_id, owner, content) value (#{category}, #{title}, #{ownerId},#{owner}, #{content})
 	</insert>
 	
-	<select id="getInfo" resultType="int">
-		select id from user where userid=#{userid}
+	<select id="getInfo" resultType="userVO">
+		select id, username, userid from user where userid=#{userid}
 	</select>
+	
+	<update id="update1" parameterType="bbsVO">
+		update bbs set category=#{category}, title=#{title}, content=#{content}
+		where  id=#{id}
+	</update>
 </mapper>

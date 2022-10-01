@@ -1,11 +1,10 @@
 package com.goodee.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.goodee.dao.DAO;
 import com.goodee.vo.BbsVO;
@@ -30,23 +29,30 @@ public class Service1 {
 	}
 	
 	public void getContent(Model model, BbsVO vo) {
-		//BbsVO vo2 = new BbsVO(); 
-		//vo2=dao.getContent(vo); BbsVO 잘 받아와지나 확인
-		//System.out.println(vo2.getContent());
-		
+	//	BbsVO vo2 = dao.getContent(vo); //BbsVO 잘 받아와지나 확인
+	//	System.out.println("서비스");
+	//	System.out.println(vo2.getOwnerId());
 		model.addAttribute("vo", dao.getContent(vo));
 	}
+
 	
-	//--------------4번 ---------------
-	public int getInfo(UserVO vo) {
-		
+	public UserVO getInfo(UserVO vo) {
+		//System.out.println("서비스");
+		//System.out.println(vo.getUserid());
 		return dao.getInfo(vo);
 	}
-	
-	
-	public void create(BbsVO vo) {
-		//세션에서 userid 받아오기???
+
+	public int create(@SessionAttribute("session") UserVO uservo, BbsVO bbsvo) {
+		//세션에서 userid 받아와서 bbsvo에 넣어주기
+		bbsvo.setOwnerId(uservo.getId());
+		bbsvo.setOwner(uservo.getUsername());
 		
-		dao.insert(vo);
+		return dao.insert(bbsvo);
+	}
+	public int update1(BbsVO vo) {
+		return dao.update1();
+	}
+	public BbsVO getContent1(BbsVO vo) {
+		return dao.getContent(vo);
 	}
 }
