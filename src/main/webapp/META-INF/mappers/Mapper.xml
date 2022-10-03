@@ -26,4 +26,8 @@
 		update bbs set category=#{category}, title=#{title}, content=#{content}
 		where id=#{id}
 	</update>
+	
+	<delete id="delete" parameterType="bbsVO">
+		delete from bbs where id=#{id}
+	</delete>
 </mapper>

@@ -55,4 +55,7 @@ public class Service1 {
 	public int update1(BbsVO vo) {
 		return dao.update1(vo);
 	}
+	public int delete6(BbsVO vo) {
+		return dao.delete(vo);
+	}
 }
