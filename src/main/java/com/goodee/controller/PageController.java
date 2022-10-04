@@ -340,14 +340,14 @@ public class PageController {
 	}
 	
 	@GetMapping("/update6")	//수정 버튼 눌렀을 때
-	public String update6(@ModelAttribute("bbsVO")BbsVO vo,
+	public String update6(BbsVO vo,
 						@SessionAttribute("session") UserVO uservo, Model model) {
 		vo = service.getContent1(vo);
 	/*	System.out.println(vo.getCategory());
 		System.out.println(vo.getContent());
 		System.out.println(vo.getTitle());
 		System.out.println(vo.getId()); */
-		model.addAttribute("vo",vo);	
+		model.addAttribute("bbsVO",vo);	
 		return "content/update6";
 	}
 	@PostMapping("/update6/{id}") //수정 후 전송 눌렀을 때

@@ -34,7 +34,7 @@
 </style>
 <body>
 
- 	<form:form action="update6/${vo.id}" modelAttribute="vo" method="post">
+ 	<form:form action="update6/${bbsVO.id}" modelAttribute="bbsVO" method="post">
 		<div id="cate">
 		<label for="category">카테고리 : </label>
 		<form:select path="category">
