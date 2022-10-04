@@ -260,6 +260,7 @@ public class PageController {
 		model.addAttribute("vo",vo);
 		return "content/update1";
 	}
+	
 	@PostMapping("/update1/{id}") //수정 후 전송 눌렀을 때
 	public String update1(@ModelAttribute("bbsVO")BbsVO bbsVO, @PathVariable int id) {
 		bbsVO.setId(id);
@@ -345,8 +346,8 @@ public class PageController {
 	/*	System.out.println(vo.getCategory());
 		System.out.println(vo.getContent());
 		System.out.println(vo.getTitle());
-		System.out.println(vo.getId());
-		model.addAttribute("vo",vo);	*/
+		System.out.println(vo.getId()); */
+		model.addAttribute("vo",vo);	
 		return "content/update6";
 	}
 	@PostMapping("/update6/{id}") //수정 후 전송 눌렀을 때

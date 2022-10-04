@@ -8,18 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${vo.content}
-	${vo.category } 이거 왜 path 안도ㅐ
- 	<form:form action="update1/${vo.id}" modelAttribute="bbsVO" method="post">
+ 	<form:form action="update1/${vo.id}" modelAttribute="vo" method="post">
 		<label for="category">카테고리</label>
 		<form:select path="category">
-		
-			<form:option value="고민">고민</form:option>
-			<form:option value="공유">공유</form:option>
-			<form:option value="공지">공지</form:option>
-			<form:option value="잡담">잡담</form:option>
-			<form:option value="비밀">비밀</form:option>
-			<form:option value="알림">알림</form:option>
+			<form:option value="고민" >고민</form:option>
+			<form:option value="공유" >공유</form:option>
+			<form:option value="공지" >공지</form:option>
+			<form:option value="잡담" >잡담</form:option>
+			<form:option value="비밀" >비밀</form:option>
+			<form:option value="알림" >알림</form:option>
 		</form:select>
 		<br />
 		<label for="tilte">제목</label>

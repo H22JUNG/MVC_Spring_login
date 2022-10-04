@@ -33,9 +33,8 @@
 	}
 </style>
 <body>
-	${vo.content}
-	${vo.category } 이거 왜 path 안도ㅐ
- 	<form:form action="update6/${vo.id}" modelAttribute="bbsVO" method="post">
+
+ 	<form:form action="update6/${vo.id}" modelAttribute="vo" method="post">
 		<div id="cate">
 		<label for="category">카테고리 : </label>
 		<form:select path="category">
